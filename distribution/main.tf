@@ -38,7 +38,7 @@ resource "aws_cloudfront_distribution" "StaticDistribution" {
   }
   # Cache behavior with precedence 0
   ordered_cache_behavior {
-    path_pattern     = "/content/immutable/*"
+    path_pattern     = "/gallery/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
     target_origin_id = var.OriginId
@@ -60,6 +60,8 @@ resource "aws_cloudfront_distribution" "StaticDistribution" {
   }
 
   # Cache behavior with precedence 1
+
+  #Dummy 
   ordered_cache_behavior {
     path_pattern     = "/content/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -80,6 +82,10 @@ resource "aws_cloudfront_distribution" "StaticDistribution" {
     compress               = true
     viewer_protocol_policy = "redirect-to-https"
   }
+
+ #Dummy Ends
+
+
 
   tags = {
     Environment = "static"

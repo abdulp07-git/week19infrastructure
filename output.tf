@@ -11,3 +11,7 @@ output "DatabaseEndpoint" {
 output "Nameservers" {
   value = module.route53.awsnameservers
 }
+
+output "cloudfronturl" {
+  value = module.distribution.cloudfronurl
+}
